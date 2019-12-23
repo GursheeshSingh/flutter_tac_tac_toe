@@ -14,8 +14,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _player1Wins = 0;
-  int _player2Wins = 0;
+  int _player1Wins = -1;
+  int _player2Wins = -1;
 
   @override
   void initState() {
@@ -31,14 +31,12 @@ class _HomePageState extends State<HomePage> {
     val.then((value) {
       _player1Wins = value;
       GameState.PLAYER_1_WINS = value;
-      print('VALUE 1: ' + value.toString());
     });
 
     val = utils.getPlayerWins(2);
     val.then((value) {
       GameState.PLAYER_2_WINS = value;
       _player2Wins = value;
-      print('VALUE 2: ' + value.toString());
     });
   }
 
@@ -84,14 +82,14 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               Text(
                   'Player 1 wins: ' +
-                      ((_player1Wins == 0) ? "-" : _player1Wins.toString()),
+                      ((_player1Wins == -1) ? "-" : _player1Wins.toString()),
                   style: TextStyle(fontSize: 15)),
               SizedBox(
                 width: 60,
               ),
               Text(
                   'Player 2 wins: ' +
-                      ((_player2Wins == 0) ? "-" : _player2Wins.toString()),
+                      ((_player2Wins == -1) ? "-" : _player2Wins.toString()),
                   style: TextStyle(fontSize: 15)),
             ],
           )
