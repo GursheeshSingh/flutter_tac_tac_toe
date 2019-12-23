@@ -10,4 +10,4 @@ A new Flutter application.
 
 ![Game screen in mid-game]( screenshots/Screenshot_3.png "Game screen in mid-game")
 
-![Game Screen end]( screenshots/Screenshot_5.png "Game Screen end")
+![Game Screen end]( screenshots/Screenshot_4.png "Game Screen end")
