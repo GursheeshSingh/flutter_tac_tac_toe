@@ -21,7 +21,7 @@ class GamePageState extends State<GamePage> {
       board[idx] = _currentPlayer;
 
       int evaluation = Utils.evaluateBoard(board);
-      if (evaluation != GameState.NO_WINNERS_YET){
+      if (evaluation != GameState.NO_WINNERS_YET) {
         _onGameEnd(evaluation);
       }
 
@@ -59,13 +59,14 @@ class GamePageState extends State<GamePage> {
             content: Text(content),
             actions: <Widget>[
               new FlatButton(
-                  onPressed: () {
-                    setState(() {
-                      reinitialize();
-                      Navigator.of(context).pop();
-                    });
-                  },
-                  child: Text("Restart"))
+                onPressed: () {
+                  setState(() {
+                    reinitialize();
+                    Navigator.of(context).pop();
+                  });
+                },
+                child: Text("Restart"),
+              )
             ],
           );
         });
@@ -98,9 +99,10 @@ class GamePageState extends State<GamePage> {
           Padding(
             padding: const EdgeInsets.all(60),
             child: Text(
-              "You are playing as " + ((_currentPlayer == GameState.PLAYER_1)
-                  ? GameState.SYMBOLS[GameState.PLAYER_1]
-                  : GameState.SYMBOLS[GameState.PLAYER_2]),
+              "You are playing as " +
+                  ((_currentPlayer == GameState.PLAYER_1)
+                      ? GameState.SYMBOLS[GameState.PLAYER_1]
+                      : GameState.SYMBOLS[GameState.PLAYER_2]),
               style: TextStyle(fontSize: 25),
             ),
           ),
@@ -110,9 +112,10 @@ class GamePageState extends State<GamePage> {
               // generate the widgets that will display the board
               children: List.generate(9, (idx) {
                 return Field(
-                    idx: idx,
-                    onTap: _movePlayed,
-                    playerSymbol: getSymbolForIndex(idx));
+                  idx: idx,
+                  onTap: _movePlayed,
+                  playerSymbol: getSymbolForIndex(idx),
+                );
               }),
             ),
           ),
